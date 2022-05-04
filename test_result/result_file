@@ -1,0 +1,152 @@
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.016746
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 5}
+0.017624
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 1}
+0.012623
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.016347
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 8, "AS" : 10}
+0.028115
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 6, "AS" : 10}
+0.009409
+{"words" : 1024, "bits" : 63, "k" : 4, "groups" : 2, "factor" : 7, "AS" : 10}
+0.016020
+{"words" : 1024, "bits" : 63, "k" : 3, "groups" : 2, "factor" : 7, "AS" : 10}
+0.021758
+{"words" : 1024, "bits" : 63, "k" : 6, "groups" : 2, "factor" : 7, "AS" : 10}
+0.019532
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 3, "factor" : 7, "AS" : 10}
+0.012696
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 4, "factor" : 7, "AS" : 10}
+0.010492
+{"words" : 1024, "bits" : 31, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.164085
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.017016
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 9}
+0.017326
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 8}
+0.018277
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 7}
+0.017250
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 6}
+0.016850
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 5}
+0.016917
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 4}
+0.016639
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 3}
+0.014916
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 2}
+0.015282
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 10}
+0.029802
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 9}
+0.029018
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 8}
+0.028860
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 7}
+0.029356
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 6}
+0.028683
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 5}
+0.028767
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 4}
+0.027341
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 3}
+0.029829
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 1, "factor" : 7, "AS" : 2}
+0.029855
+{"words" : 1024, "bits" : 64, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.019257
+{"words" : 1024, "bits" : 62, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.017620
+{"words" : 1024, "bits" : 61, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.021380
+{"words" : 1024, "bits" : 60, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.022770
+{"words" : 1024, "bits" : 59, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.026733
+{"words" : 1024, "bits" : 58, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.029175
+{"words" : 1024, "bits" : 57, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.031090
+{"words" : 1024, "bits" : 56, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.033950
+{"words" : 1024, "bits" : 55, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.036384
+{"words" : 1024, "bits" : 54, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.038610
+{"words" : 1024, "bits" : 53, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.042340
+{"words" : 1024, "bits" : 52, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.044829
+{"words" : 1024, "bits" : 51, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.047488
+{"words" : 1024, "bits" : 50, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.051223
+{"words" : 1024, "bits" : 49, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.054160
+{"words" : 1024, "bits" : 48, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.057385
+{"words" : 1024, "bits" : 47, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.062997
+{"words" : 1024, "bits" : 46, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.065360
+{"words" : 1024, "bits" : 45, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.067013
+{"words" : 1024, "bits" : 44, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.075535
+{"words" : 1024, "bits" : 43, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.079057
+{"words" : 1024, "bits" : 42, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.086274
+{"words" : 1024, "bits" : 41, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.088983
+{"words" : 1024, "bits" : 40, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.094566
+{"words" : 1024, "bits" : 39, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.099504
+{"words" : 1024, "bits" : 38, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.104806
+{"words" : 1024, "bits" : 37, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.114834
+{"words" : 1024, "bits" : 36, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.118748
+{"words" : 1024, "bits" : 35, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.127362
+{"words" : 1024, "bits" : 34, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.136351
+{"words" : 1024, "bits" : 33, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.139776
+{"words" : 1024, "bits" : 32, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.151026
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 7, "AS" : 10}
+0.016015
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 10, "AS" : 10}
+0.053308
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 10, "AS" : 10}
+0.053339
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 10, "AS" : 10}
+0.052914
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 10, "AS" : 32}
+0.054125
+{"words" : 512, "bits" : 63, "k" : 8, "groups" : 2, "factor" : 8, "AS" : 32}
+0.047138
+{"words" : 512, "bits" : 63, "k" : 6, "groups" : 2, "factor" : 8, "AS" : 32}
+0.032804
+{"words" : 512, "bits" : 63, "k" : 4, "groups" : 2, "factor" : 8, "AS" : 32}
+0.027606
+{"words" : 512, "bits" : 63, "k" : 2, "groups" : 2, "factor" : 8, "AS" : 32}
+0.046555
+{"words" : 512, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 8, "AS" : 32}
+0.028656
+{"words" : 1024, "bits" : 63, "k" : 5, "groups" : 2, "factor" : 8, "AS" : 32}
+0.025893
+{"words" : 512, "bits" : 63, "k" : 4, "groups" : 2, "factor" : 8, "AS" : 32}
+0.028566
+{"words" : 512, "bits" : 63, "k" : 4, "groups" : 4, "factor" : 8, "AS" : 32}
+0.022596
+{"words" : 512, "bits" : 63, "k" : 4, "groups" : 4, "factor" : 8, "AS" : 32}
+0.022956
