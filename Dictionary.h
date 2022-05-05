@@ -19,7 +19,7 @@ typedef struct HashNode{
 
 class HashTable{
 private:
-    vector<Node*> table;
+    Node* table;
     size_t s=0;
     size_t n=0;
 public:

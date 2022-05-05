@@ -23,11 +23,12 @@ void mySHA512::array_2_bitset(const unsigned char *buf, uint32_t n_bytes, std::b
     }
 }
 HashFunctionSHA512::HashFunctionSHA512(int words, int bits, int nhash, int hash_groups):
+words(words),
 bits(bits),
 nhash(nhash),
 hash_groups(hash_groups)
 {
-    wordidx_size = int(log2(words));
+    wordidx_size = ceil(log2(words));
     int alt_val = int((512-wordidx_size)/(hash_groups*nhash));
     int min_val = ceil(log2(bits));
     bitidx_size = min_val<alt_val ? min_val:alt_val;
@@ -52,11 +53,13 @@ unsigned int HashFunctionSHA512::getword_idx(const char* element) {
     result <<= wordidx_size%8;
     result += GET(lasthash[wordidx_size/8],wordidx_size%8);
 
-    return result;
+    return result%words;
 }
 
 unsigned int HashFunctionSHA512::getbit_idx(const char* element, unsigned int n, unsigned int group) {
-    assert(group<hash_groups);
+    if(group>=hash_groups){
+        cerr<<"group: "<<group<<" >total: "<<hash_groups<<endl;
+    }
     n = group * nhash + n;
     if(strcmp(element, lastelement.c_str())!=0){
         lastelement = element;

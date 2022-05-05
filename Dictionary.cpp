@@ -5,17 +5,17 @@
 #include <openssl/sha.h>
 #include <cstring>
 #include <iostream>
+#include <cassert>
 
 bool HashTable::insert(const char *element) {
     int64_t hash[4];
     SHA256(reinterpret_cast<const unsigned char *>(element), strlen(element), reinterpret_cast<unsigned char *>(hash));
     size_t idx=hash[0] % s;
     //cout<<"index: "<<idx<<endl;
-    HashNode* current_node=table[idx];
-    if(current_node== nullptr){
-        current_node = new HashNode;
+    HashNode* current_node=&table[idx];
+    assert(current_node!= nullptr);
+    if(current_node->value == nullptr){
         current_node->value=strdup(element);
-        table[idx] = current_node;
         n++;
     }
     else{
@@ -38,15 +38,17 @@ bool HashTable::insert(const char *element) {
 }
 
 HashTable::HashTable(size_t size):s(size) {
-    table.resize(s);
+    table = new Node[s];
+    //for(int i=0;i<s;i++) table[i] = nullptr;
+    //table[512] = nullptr;
 }
 
 bool HashTable::find(const char *element) {
     int64_t hash[4];
     SHA256(reinterpret_cast<const unsigned char *>(element), strlen(element), reinterpret_cast<unsigned char *>(hash));
     size_t idx=hash[0] % s;
-    HashNode* current_node=table[idx];
-    if(current_node == nullptr)
+    HashNode* current_node=&table[idx];
+    if(current_node->value == nullptr)
         return false;
     else{
         while(current_node != nullptr){
@@ -64,7 +66,7 @@ bool HashTable::erase(const char* element) {
 
 void HashTable::clear() {
     for(int i=0;i<s;i++){
-        HashNode* current = table[i];
+        HashNode* current = &table[i];
         if(current == nullptr) continue;
         else{
             HashNode* next = current->next;
@@ -76,10 +78,9 @@ void HashTable::clear() {
                 delete current;
                 current = nullptr;
             }
-            delete table[i]->value;
-            table[i]->value = nullptr;
-            delete table[i];
-            table[i] = nullptr;
+            delete table[i].value;
+            table[i].value = nullptr;
+            table[i].next = nullptr;
         }
     }
     n=0;

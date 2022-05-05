@@ -8,6 +8,7 @@
 #include "Dictionary.h"
 #include <fstream>
 #include <cassert>
+#include <map>
 #include "macros.h"
 //#define TEST_FN 1
 using namespace std;
@@ -24,9 +25,11 @@ int groups=2;
 int npf=10;
 int words;
 int bits;
+int s_s;
 AdaptiveBloomFilter* abf;
 //Dictionary* dc;
 HashDictionary* hdc;
+//map<string ,char> S_map;
 char** A_list;
 
 string generateRandomElement(int a, int b,std::uniform_int_distribution<>& dis, std::mt19937& gen){
@@ -52,7 +55,6 @@ void PrintUsage() {
     printf("usage:\n");
     printf(" ***\n");
     printf(" -w words: number of words\n");
-    printf(" -b bits: number of bits per word\n");
     printf(" -n num_packets: number of packets for each flow \n");
     printf(" -a as_ratio: set the A/S ratio \n");
     printf(" -S seed: select random seed (for debug)\n");
@@ -108,11 +110,6 @@ void init(int argc, char **argv){
                     seed=atoi(argv[1]);
                     argc--;
                     break;
-                case 'b':
-                    flag=1;
-                    bits=atoi(argv[1]);
-                    argc--;
-                    break;
                 case 'f':
                     flag=1;
                     factor=atoi(argv[1]);
@@ -147,6 +144,8 @@ void init(int argc, char **argv){
         argv= argv + flag;
     }
     A=factor*words*AS;
+    s_s = ceil(log2(groups));
+    bits = BIT_SIZE_WORD - s_s;
     //Print general parameters
     printf("general parameters: \n");
     max_loop = 5;
@@ -161,8 +160,7 @@ void init(int argc, char **argv){
     printf("npf: %d\n",npf);
     printf("---------------------------\n");
 
-    abf = new AdaptiveBloomFilter(words,bits,k,groups);
-    hdc = new HashDictionary(ceil(words*factor*0.8));
+    //hdc = new HashDictionary(ceil(words*factor*0.8));
 }
 
 void run(){
@@ -184,6 +182,9 @@ void run(){
     int64_t min_FP=INT_MAX;
     int64_t tot_FP=0;
     int64_t tot_count=0;
+
+    abf = new AdaptiveBloomFilter(words,bits,s_s,k,groups);
+    hdc = new HashDictionary(words*factor*1.5);
     A_list = new char*[A];
     for(int i=0;i<A;i++) A_list[i] = nullptr;
 
@@ -235,7 +236,7 @@ void run(){
         num_iter=npf*ar_size;
 
         for(int64_t iter=0; iter<num_iter; iter++){
-            char* key = A_list[(unsigned int)rand() % ar_size];
+            char* key = A_list[(unsigned int) rand() % ar_size];
             //count++;
             tot_count++;
             if(abf->query(key)){

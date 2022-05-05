@@ -6,6 +6,9 @@
 #define ABF_SLOWMEMORYREPRESENTATION_H
 #include<set>
 #include <vector>
+#include <cstddef>
+#include <cstdint>
+#include "macros.h"
 using namespace std;
 class SlowMemoryRepresentation {
     friend class AdaptiveBloomFilter;
@@ -13,16 +16,16 @@ private:
     int words;
     int bits;
     int hash_groups;
-    vector<char> back_bloom;
-    unsigned int s;
-    int wordidx_size;
-    int bitidx_size;
+    WORD* back_bloom;
+    unsigned short selector_size;
+    //int wordidx_size;
+    //int bitidx_size;
 public:
-    SlowMemoryRepresentation(int words=2048,int bits=32, int hash_groups=2);
+    explicit SlowMemoryRepresentation(int words=2048,int bits=32, int hash_groups=2);
     ~SlowMemoryRepresentation();
 private:
     void add(unsigned int group,unsigned int wordidx, const set<unsigned int>& idx);
-    char* get(unsigned int group,unsigned int wordidx);
+    WORD get(unsigned int group,unsigned int wordidx);
     void clear();
 };
 

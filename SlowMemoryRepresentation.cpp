@@ -14,40 +14,50 @@ words(words),
 bits(bits),
 hash_groups(hash_group)
 {
-    s = ceil(hash_groups*words*bits/8);
-    back_bloom.resize(s);
-    for (int i=0;i<s;i++) back_bloom[i]=0;
-    wordidx_size=int(log2(words));
-    bitidx_size=int(log2(bits));
+    selector_size = ceil(log2(hash_group));
+    back_bloom = new WORD[hash_groups * words + 1];
+    int offset = BIT_SIZE_WORD - selector_size;
+    for (int i=0;i<hash_groups;i++){
+        for(int j=0;j<words;j++) {
+            uint64_t x = ((uint64_t) i) << offset;
+            back_bloom[i * words + j] = x;
+        }
+    }
+    //wordidx_size=int(log2(words));
+    //bitidx_size=int(log2(bits));
 }
 
 void SlowMemoryRepresentation::add(unsigned int group, unsigned int wordidx, const set<unsigned int>& idx) {
+    unsigned int actual_idx = group * words + wordidx;
+    WORD& w = back_bloom[actual_idx];
     for(auto i:idx){
-        unsigned int actual_i = (group * words + wordidx) * bits + i;
-        if(actual_i >= hash_groups*words*bits){
-            cerr<<"actual_i: "<<actual_i<<" >= total: "<<hash_groups*words*bits<<endl;
-            cerr<<"group: "<<group<<" wordidx: "<<wordidx<<" idx: "<<i<<endl;
-            exit(3);
-        }
-        SETBIT(back_bloom[actual_i/8],7-(actual_i%8));
+        unsigned int actual_i = BIT_SIZE_WORD - (i + selector_size) - 1;
+//        if(actual_i >= hash_groups*words*bits){
+//            cerr<<"actual_i: "<<actual_i<<" >= total: "<<hash_groups*words*bits<<endl;
+//            cerr<<"group: "<<group<<" wordidx: "<<wordidx<<" idx: "<<i<<endl;
+//            exit(3);
+//        }
+        SETBIT(w,actual_i);
     }
 }
 
-char* SlowMemoryRepresentation::get(unsigned int group, unsigned int wordidx) {
+WORD SlowMemoryRepresentation::get(unsigned int group, unsigned int wordidx) {
     assert(group<hash_groups);
-    unsigned int wordinit = (group * words + wordidx) * bits;
-    unsigned int wordend = wordinit+bits-1;
-    unsigned int size = wordend / 8 - wordinit / 8 + 1;
-    char* result=new char[size];
-    for(int i = 0;i < size;i++)
-        result[i] = back_bloom[wordinit / 8 + i];
-    return result;
+    unsigned int actual_idx = group * words + wordidx;
+    return back_bloom[actual_idx];
 }
 
 void SlowMemoryRepresentation::clear() {
-    back_bloom.clear();
-    back_bloom.resize(s);
-    for (int i=0;i<s;i++) back_bloom[i]=0;
+    int offset = BIT_SIZE_WORD - selector_size;
+    for (int i=0;i<hash_groups;i++){
+        for(int j=0;j<words;j++) {
+            uint64_t x = ((uint64_t) i) << offset;
+            back_bloom[i * words + j] = x;
+        }
+    }
 }
 
-SlowMemoryRepresentation::~SlowMemoryRepresentation() = default;
+SlowMemoryRepresentation::~SlowMemoryRepresentation(){
+    delete[] back_bloom;
+    back_bloom = nullptr;
+}

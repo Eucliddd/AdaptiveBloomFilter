@@ -7,32 +7,35 @@
 #include "SlowMemoryRepresentation.h"
 #include "HashFunctionSHA512.h"
 #include "Dictionary.h"
+#include "macros.h"
+
 using namespace mySHA512;
 class AdaptiveBloomFilter {
 private:
     // number of words
     int words;
-    //number of bits per words
-    int bits;
-    unsigned int s;
-    //filter in memory
-    vector<char> bloom_filter;
-    //the selector array with an integer per word
-    vector<unsigned char> selector_bits;
-    //void* hash_f;
     //the number of hashes per group
     int nhash;
     //the number of total hash groups (f, g ...)
     int hash_group;
+
+    short selector_size;
+    //number of bits per words
+    int bits;
+    //filter in memory
+    WORD* bloom_filter;
+    //the selector array with an integer per word
+    //vector<unsigned char> selector_bits;
+    //void* hash_f;
     //the size of the word index
-    int wordidx_size;
+    //int wordidx_size;
     //the size of each bit index to set/get a bit from the word
-    int bitidx_size;
+    //int bitidx_size;
     //SlowMemoryRepresentation
     SlowMemoryRepresentation SMR;
     HashFunctionSHA512 hash_f;
 public:
-    AdaptiveBloomFilter(int w=1024,int b=64,int nhash=2,int hash_groups=2);
+    explicit AdaptiveBloomFilter(int w=1024,int bits=63,short selector_size=1, int nhash=2,int hash_groups=2);
     ~AdaptiveBloomFilter();
     void add(const char* element);
     bool query(const char* element);

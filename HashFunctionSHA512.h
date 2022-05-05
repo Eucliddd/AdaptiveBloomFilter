@@ -17,6 +17,7 @@ namespace mySHA512 {
         int nhash;
         int wordidx_size;
         int bitidx_size;
+        int words;
         int bits;
         std::string lastelement;
         unsigned char lasthash[64]{};
